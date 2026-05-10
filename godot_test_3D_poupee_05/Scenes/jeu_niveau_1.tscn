@@ -1,0 +1,278 @@
+[gd_scene load_steps=19 format=3 uid="uid://ka0uce0i4y8f"]
+
+[ext_resource type="PackedScene" uid="uid://ydyj710twgnt" path="res://Scenes/Niveau1.tscn" id="1_5i104"]
+[ext_resource type="Script" path="res://Scripts/Camera3D.cs" id="2_gojg7"]
+[ext_resource type="PackedScene" uid="uid://c8k8gdvbec6pb" path="res://Scenes/poupee_01.tscn" id="2_xcs67"]
+[ext_resource type="PackedScene" uid="uid://nereuech6cn3" path="res://Scenes/poupee_02.tscn" id="4_ko6yn"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0guoh"]
+sky_top_color = Color(0.260772, 0.379822, 0.679059, 1)
+sky_horizon_color = Color(0.486847, 0.680349, 0.75583, 1)
+ground_bottom_color = Color(0.41113, 0.486435, 0.450836, 1)
+
+[sub_resource type="Sky" id="Sky_b3uk8"]
+sky_material = SubResource("ProceduralSkyMaterial_0guoh")
+
+[sub_resource type="Environment" id="Environment_gf4om"]
+background_mode = 2
+sky = SubResource("Sky_b3uk8")
+sky_custom_fov = 142.9
+tonemap_mode = 3
+adjustment_enabled = true
+adjustment_brightness = 1.86
+adjustment_contrast = 2.72
+adjustment_saturation = 1.86
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ls4kh"]
+size = Vector3(4.46138, 5.31226, 3.65952)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nw4gi"]
+size = Vector3(62.5435, 4.10388, 96.7689)
+
+[sub_resource type="Animation" id="Animation_f0w21"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 3.14159, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-4.7653, 0.992168, 1.43764)]
+}
+
+[sub_resource type="Animation" id="Animation_ln07t"]
+resource_name = "deplacement1"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4.6, 5.2, 9.5, 9.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 3.14159, 0), Vector3(0, 3.14159, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, -3.14159, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4.6, 5.2, 9.5, 9.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-5.55537, 0.992168, 1.43764), Vector3(-5.55537, 0.992168, -7.45059), Vector3(-5.55537, 0.992168, -7.45059), Vector3(-5.55537, 0.992168, 1.43764), Vector3(-5.55537, 0.992168, 1.43764)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oqw30"]
+_data = {
+"RESET": SubResource("Animation_f0w21"),
+"deplacement1": SubResource("Animation_ln07t")
+}
+
+[sub_resource type="Animation" id="Animation_mqrmh"]
+resource_name = "deplacement_03"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 4.2, 5.6, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-7.87596, 0.992168, -16.4513), Vector3(-5.75264, 0.992168, -23.0188), Vector3(-5.75264, 0.992168, -23.0188), Vector3(-7.87596, 0.992168, -16.4513)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 4.2, 5.6, 9.3, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 3.14159, 0), Vector3(0, 3.14159, 0), Vector3(0, -0.264821, 0), Vector3(0, -0.264821, 0), Vector3(0, 3.14159, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_y4xcu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-7.87596, 0.992168, -16.4513)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 3.14159, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8e6x5"]
+_data = {
+"RESET": SubResource("Animation_y4xcu"),
+"deplacement_03": SubResource("Animation_mqrmh")
+}
+
+[sub_resource type="Animation" id="Animation_ylfie"]
+resource_name = "deplacement_04"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4, 5.2, 8.9, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-18.0641, 0.992168, -49.2064), Vector3(-10.1115, 0.992168, -49.2064), Vector3(-10.1115, 0.992168, -49.2064), Vector3(-18.0641, 0.992168, -49.2064), Vector3(-18.0641, 0.992168, -49.2064)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4, 5.2, 8.9, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0), Vector3(0, 1.5708, 0), Vector3(0, -1.5708, 0), Vector3(0, -1.5708, 0), Vector3(0, 1.5708, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2a5lx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-18.0641, 0.992168, -49.2064)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2tpf4"]
+_data = {
+"RESET": SubResource("Animation_2a5lx"),
+"deplacement_04": SubResource("Animation_ylfie")
+}
+
+[node name="Jeu_Niveau1" type="Node3D"]
+
+[node name="Niveau 1" parent="." instance=ExtResource("1_5i104")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.00772585, -0.635121, 0.772374, 0.00935487, 0.772409, 0.635056, -0.999926, 0.00231911, 0.011909, 30.9752, 30.8692, -18.7802)
+environment = SubResource("Environment_gf4om")
+fov = 49.5
+near = 0.064
+far = 1263.21
+script = ExtResource("2_gojg7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.797237, 0.57471, 0.184721, 0.23005, 0.00633733, 0.973158, 0.558113, 0.818333, -0.137265, -3.64574, 16.2768, -12.762)
+light_energy = 1.151
+shadow_enabled = true
+
+[node name="poupee_01" parent="." instance=ExtResource("2_xcs67")]
+transform = Transform3D(-0.00785382, 0, -0.999969, 0, 1, 0, 0.999969, 0, -0.00785382, -0.792418, 1.0211, 1.01861)
+
+[node name="Fin" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.609, 0.363986, -53.9031)
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fin"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0227127, 1.4469, -0.15657)
+shape = SubResource("BoxShape3D_ls4kh")
+
+[node name="Vide" type="Area3D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Vide"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.33019, -3.86285, -27.2505)
+shape = SubResource("BoxShape3D_nw4gi")
+
+[node name="poupee_02" parent="." instance=ExtResource("4_ko6yn")]
+transform = Transform3D(-6, 0, 1.52111e-05, 0, 6, 0, -1.52111e-05, 0, -6, -4.7653, 0.992168, 1.43764)
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="poupee_02"]
+libraries = {
+"": SubResource("AnimationLibrary_oqw30")
+}
+autoplay = "deplacement1"
+
+[node name="poupee_03" parent="." instance=ExtResource("4_ko6yn")]
+transform = Transform3D(-4, 0, 1.01407e-05, 0, 4, 0, -1.01407e-05, 0, -4, -7.87596, 0.992168, -16.4513)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="poupee_03"]
+libraries = {
+"": SubResource("AnimationLibrary_8e6x5")
+}
+autoplay = "deplacement_03"
+
+[node name="poupee_04" parent="." instance=ExtResource("4_ko6yn")]
+transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, -18.0641, 0.992168, -49.2064)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="poupee_04"]
+libraries = {
+"": SubResource("AnimationLibrary_2tpf4")
+}
+autoplay = "deplacement_04"
