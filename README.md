@@ -1,4 +1,4 @@
-Jeu pour tester Gogot mono en C#.
+Jeu pour tester Godot mono en C#.
 
 Modèles 3D réalisés avec Blender.
 
