@@ -10,10 +10,14 @@ config_version=5
 
 [application]
 
-config/name="Godot Test 3d Poupee 05"
+config/name="Godot Test 3d Poupee 09"
 run/main_scene="res://Scenes/jeu_niveau_1.tscn"
 config/features=PackedStringArray("4.2", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://Scripts/Global.cs"
 
 [dotnet]
 

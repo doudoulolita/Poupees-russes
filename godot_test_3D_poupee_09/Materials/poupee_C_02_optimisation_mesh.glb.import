@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c0gjr7ou3vosw"
-path="res://.godot/imported/poupee_C_02_optimisation_mesh.glb-3fd5493762c7a546217b5b41c66c307d.scn"
+path="res://.godot/imported/poupee_C_02_optimisation_mesh.glb-24101559a8a9803c2bac255d44f4d0cb.scn"
 
 [deps]
 
-source_file="res://Modeles/poupee_C_02_optimisation_mesh.glb"
-dest_files=["res://.godot/imported/poupee_C_02_optimisation_mesh.glb-3fd5493762c7a546217b5b41c66c307d.scn"]
+source_file="res://Materials/poupee_C_02_optimisation_mesh.glb"
+dest_files=["res://.godot/imported/poupee_C_02_optimisation_mesh.glb-24101559a8a9803c2bac255d44f4d0cb.scn"]
 
 [params]
 

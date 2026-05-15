@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c8k8gdvbec6pb"]
 
-[ext_resource type="PackedScene" uid="uid://dysr00si1kyn2" path="res://Modeles/poupee_C_01_optimisation_mesh.glb" id="1_53i2s"]
 [ext_resource type="Script" path="res://Scripts/poupee_01.cs" id="1_bg251"]
+[ext_resource type="PackedScene" uid="uid://dysr00si1kyn2" path="res://Materials/poupee_C_01_optimisation_mesh.glb" id="2_q78dp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5g2j7"]
 radius = 0.399833
@@ -19,12 +19,12 @@ script = ExtResource("1_bg251")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0286865, 0.78032, -0.0121613)
 shape = SubResource("CapsuleShape3D_5g2j7")
 
-[node name="poupee_C_01_optimisation_mesh" parent="." instance=ExtResource("1_53i2s")]
+[node name="poupee_C_01_optimisation_mesh" parent="." instance=ExtResource("2_q78dp")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.698193, 0)
-collision_mask = 30
+collision_mask = 62
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0777862, 0)

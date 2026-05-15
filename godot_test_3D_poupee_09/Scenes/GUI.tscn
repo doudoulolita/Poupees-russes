@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://51lewssmpmyu"]
+
+[ext_resource type="Texture2D" uid="uid://bp2uiajh33nh3" path="res://Materials/poupee_peinte_C_01.png" id="1_gt703"]
+[ext_resource type="Texture2D" uid="uid://bnvsecsmbocn5" path="res://Materials/poupee_peinte_C_02.png" id="2_dcdwi"]
+[ext_resource type="Texture2D" uid="uid://cjinxq7dgy10d" path="res://Modeles/fleur.png" id="2_xs3yo"]
+
+[sub_resource type="SystemFont" id="SystemFont_71m01"]
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_54w1m"]
+font = SubResource("SystemFont_71m01")
+font_size = 20
+
+[node name="GUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Compteur" type="Label" parent="."]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 34.0
+offset_right = 134.0
+offset_bottom = 103.0
+text = "10
+"
+label_settings = SubResource("LabelSettings_54w1m")
+
+[node name="Compteur2" type="Label" parent="."]
+layout_mode = 1
+offset_left = 77.0
+offset_top = 95.0
+offset_right = 135.0
+offset_bottom = 164.0
+text = "10
+"
+label_settings = SubResource("LabelSettings_54w1m")
+
+[node name="Compteur3" type="Label" parent="."]
+layout_mode = 1
+offset_left = 77.0
+offset_top = 144.0
+offset_right = 135.0
+offset_bottom = 213.0
+text = "10
+"
+label_settings = SubResource("LabelSettings_54w1m")
+
+[node name="PoupeePeinteC01" type="Sprite2D" parent="."]
+position = Vector2(39, 48)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("1_gt703")
+
+[node name="PoupeePeinteC02" type="Sprite2D" parent="."]
+position = Vector2(39, 110)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_dcdwi")
+
+[node name="Fleur" type="Sprite2D" parent="."]
+position = Vector2(46, 159)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("2_xs3yo")
