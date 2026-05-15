@@ -7,4 +7,6 @@ Texture bois CCO : https://polyhaven.com/a/dark_wood
 
 Idée proposée lors du Blender User Group de Paris.
 
+Le BUG de Paris se réunit tous les 1ers samedis du mois au Carrefour Numérique de la Cité des Sciences.
+
 ![capture jeu](/docs/assets/images/capture_jeu_poupees_russes_09.png)
