@@ -3,6 +3,6 @@ Jeu pour tester Godot mono en C#.
 Modèles 3D réalisés avec Blender.
 
 Textures poupées russes faites avec Gimp.
-Texture bois : https://polyhaven.com/a/dark_wood
+Texture bois CCO : https://polyhaven.com/a/dark_wood
 
 Idée proposée lors du Blender User Group de Paris.
