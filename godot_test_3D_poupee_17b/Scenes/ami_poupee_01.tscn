@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0benxau4sjs2"]
+
+[ext_resource type="PackedScene" uid="uid://dysr00si1kyn2" path="res://Modeles/poupee_C_01_optimisation_mesh.glb" id="1_nsnbt"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rvp18"]
+radius = 0.0514729
+height = 0.178184
+
+[node name="ami_poupee_01" type="StaticBody3D"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+collision_layer = 16
+collision_mask = 0
+
+[node name="poupee_C_01_optimisation_mesh" parent="." instance=ExtResource("1_nsnbt")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.00173018, 0.0780782, -0.0121613)
+shape = SubResource("CapsuleShape3D_rvp18")

@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8k8gdvbec6pb"]
+
+[ext_resource type="Script" path="res://Scripts/poupee_01.cs" id="1_bg251"]
+[ext_resource type="PackedScene" uid="uid://dysr00si1kyn2" path="res://Modeles/poupee_C_01_optimisation_mesh.glb" id="2_q78dp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5g2j7"]
+radius = 0.399833
+height = 1.64645
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_torr5"]
+radius = 0.513455
+height = 1.72509
+
+[node name="poupee_01" type="CharacterBody3D"]
+collision_mask = 514
+script = ExtResource("1_bg251")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0286865, 0.78032, -0.0121613)
+shape = SubResource("CapsuleShape3D_5g2j7")
+
+[node name="poupee_C_01_optimisation_mesh" parent="." instance=ExtResource("2_q78dp")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.698193, 0)
+collision_mask = 440
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0777862, 0)
+shape = SubResource("CapsuleShape3D_torr5")
+
+[node name="ChapeauFleur" type="Marker3D" parent="."]
+transform = Transform3D(1.60515, -9.31323e-10, -1.39698e-09, 0, 0.475986, 1.93255, 0, -1.30776, 0.703391, 0, 1.611, 0.063)
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

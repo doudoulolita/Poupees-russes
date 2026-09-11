@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://beagpey2eha5k"]
+
+[ext_resource type="PackedScene" uid="uid://4g8rm2bk3cbl" path="res://Modeles/buisson_colonly.glb" id="1_qkgq7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_toij0"]
+size = Vector3(3.07007, 1, 6.64777)
+
+[node name="buissons" instance=ExtResource("1_qkgq7")]
+
+[node name="bloc" parent="." index="0"]
+layers = 2
+
+[node name="buisson" parent="." index="1"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="sol" parent="." index="2"]
+layers = 2
+
+[node name="StaticBody3D" type="StaticBody3D" parent="sol" index="0"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sol/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.652954, -0.441971, -2.27243)
+shape = SubResource("BoxShape3D_toij0")
