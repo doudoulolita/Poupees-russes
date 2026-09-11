@@ -1,0 +1,127 @@
+extends CharacterBody3D
+
+const SPEED = 5.0
+const JUMP_VELOCITY = 7.0
+
+# Get the gravity from the project settings to be synced with RigidBody nodes.
+var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
+
+var nb_points = 0
+var nb_poupees_b = 0
+var nb_poupees_r = 0
+var nb_fleurs = 0
+var nb_fleurs_attak = 0
+
+var cpt: Label
+var cpt2: Label
+var cpt3: Label
+var cpt4: Label
+var cpt5: Label
+
+
+func _ready() -> void:
+	cpt = get_parent().get_node("GUI/Compteur") as Label
+	cpt2 = get_parent().get_node("GUI/Compteur2") as Label
+	cpt3 = get_parent().get_node("GUI/Compteur3") as Label
+	cpt4 = get_parent().get_node("GUI/Compteur4") as Label
+	cpt5 = get_parent().get_node("GUI/Compteur5") as Label
+
+	cpt.text = "Nombre de poupées bleues : "  # initialisation
+	cpt2.text = "Nombre de poupées rouges attrapées : "  # initialisation
+	cpt3.text = "Nombre de fleurs touchées :"  # initialisation
+	cpt4.text = "Nombre de poupées bleues : "  # initialisation
+	cpt5.text = "Nombre de fleurs rouges reçues : "  # initialisation
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	var global_script = get_node("/root/Global")
+
+	for i in range(5):
+		if body.name == "poupee_0" + str(i):
+			body.queue_free()
+			nb_poupees_r = global_script.IncreaseCount(nb_poupees_r)
+			global_script.PrintCount(nb_poupees_r)
+			cpt2.text = "Nombre de poupées rouges attrapées : " + str(nb_poupees_r)
+
+	for i in range(4):
+		if body.name == "ami_poupee_0" + str(i):
+			body.queue_free()
+			nb_poupees_b = global_script.IncreaseCount(nb_poupees_b)
+			global_script.PrintCount(nb_poupees_b)
+			cpt4.text = "Nombre de poupées bleues attrapées : " + str(nb_poupees_b)
+
+	if body.name == "Attak_rigid":
+		body.queue_free()
+		nb_fleurs_attak = global_script.IncreaseCount(nb_fleurs_attak)
+		global_script.PrintCount(nb_fleurs_attak)
+		print("Fleur rouge")
+		cpt5.text = "Nombre de fleurs rouges reçues : " + str(nb_fleurs_attak)
+
+	for i in range(7):
+		if body.name == "fleur_0" + str(i):
+			print("Nombre de points : ")
+			cpt3.text = "Nombre de fleurs touchées : "
+			nb_fleurs = global_script.IncreaseCount(nb_fleurs)
+			global_script.PrintCount(nb_fleurs)
+			cpt3.text = "Nombre de fleurs touchées : " + str(nb_fleurs)
+
+		nb_points = nb_poupees_b + nb_fleurs - nb_poupees_r - nb_fleurs_attak
+		global_script.PrintCount(nb_points)
+
+		if nb_points > 0:
+			cpt.text = "Nombre de points : " + str(nb_points) + ". Bien !"
+		if nb_points < 0:
+			cpt.text = "Nombre de points : " + str(nb_points) + ". Reprenez-vous !"
+		if nb_points == 0:
+			cpt.text = "Votre score est de 0."
+
+
+func _on_area_3d_area_entered(area: Area3D) -> void:
+	var global_script = get_node("/root/Global")
+
+	if area.name == "Fin":
+		print("Fin du niveau")
+
+		cpt.text = "Fin du niveau. "
+
+		if nb_points > 0:
+			cpt.text += "Vous avez gagné " + str(nb_points) + " point(s). Bravo ! "
+		if nb_points < 0:
+			cpt.text += "Vous avez perdu " + str(abs(nb_points)) + " point(s). Dommage !"
+		if nb_points == 0:
+			cpt.text += "Votre score est de 0. Dommage !"
+
+	if area.name == "Vide":
+		print("Tombé !")
+		cpt.text = "Tombé !"
+
+
+func _physics_process(delta: float) -> void:
+	var velocity: Vector3 = self.velocity
+
+	# Add the gravity.
+	if not is_on_floor():
+		velocity.y -= gravity * delta
+
+	# Handle Jump.
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var direction := Vector3(-input_dir.x, 0, input_dir.y).normalized()
+
+	if direction != Vector3.ZERO:
+		velocity.x = direction.z * SPEED
+		velocity.z = direction.x * SPEED
+
+		# Rotation stable
+		var angle := atan2(direction.z, direction.x)
+		rotation = Vector3(0, angle, 0)
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.z = move_toward(velocity.z, 0, SPEED)
+
+	self.velocity = velocity
+	move_and_slide()

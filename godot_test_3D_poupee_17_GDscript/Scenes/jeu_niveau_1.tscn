@@ -1,0 +1,406 @@
+[gd_scene format=3 uid="uid://ka0uce0i4y8f"]
+
+[ext_resource type="Script" uid="uid://m53m3m8hbsi4" path="res://Scripts/jeu_niveau_1.gd" id="1_kd0g7"]
+[ext_resource type="Script" uid="uid://ban6dmprpr436" path="res://Scripts/Camera3D.gd" id="2_75a24"]
+[ext_resource type="PackedScene" uid="uid://c8k8gdvbec6pb" path="res://Scenes/poupee_01.tscn" id="2_xcs67"]
+[ext_resource type="PackedScene" uid="uid://bknatar7g8dwm" path="res://Scenes/fleur_seule_01.tscn" id="3_sn1om"]
+[ext_resource type="Script" uid="uid://bnkwliqt1sgod" path="res://Scripts/poupee_01.gd" id="4_0i7c8"]
+[ext_resource type="PackedScene" uid="uid://nereuech6cn3" path="res://Scenes/poupee_02.tscn" id="4_ko6yn"]
+[ext_resource type="PackedScene" uid="uid://c3iuniecbx1tr" path="res://Scenes/fleur.tscn" id="5_ies2d"]
+[ext_resource type="PackedScene" uid="uid://51lewssmpmyu" path="res://Scenes/GUI.tscn" id="6_df2ra"]
+[ext_resource type="PackedScene" uid="uid://c0benxau4sjs2" path="res://Scenes/ami_poupee_01.tscn" id="7_enlrm"]
+[ext_resource type="PackedScene" uid="uid://beagpey2eha5k" path="res://Scenes/Niveau1b.tscn" id="10_g3j8d"]
+[ext_resource type="PackedScene" uid="uid://d2hlh4gn8kcie" path="res://Scenes/fleur_pointue.tscn" id="11_l0ypl"]
+[ext_resource type="PackedScene" uid="uid://glurx0fd67xe" path="res://Scenes/doudoulolita.tscn" id="12_bhsya"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0guoh"]
+sky_top_color = Color(0.260772, 0.379822, 0.679059, 1)
+sky_horizon_color = Color(0.486847, 0.680349, 0.75583, 1)
+sky_curve = 0.17838094
+sky_energy_multiplier = 5.63
+ground_bottom_color = Color(0.41113, 0.486435, 0.450836, 1)
+ground_curve = 0.14420046
+ground_energy_multiplier = 2.54
+
+[sub_resource type="Sky" id="Sky_b3uk8"]
+sky_material = SubResource("ProceduralSkyMaterial_0guoh")
+
+[sub_resource type="Environment" id="Environment_gf4om"]
+background_mode = 2
+background_energy_multiplier = 0.17
+sky = SubResource("Sky_b3uk8")
+sky_custom_fov = 142.9
+ambient_light_source = 3
+ambient_light_color = Color(0.35586902, 0.6286141, 0.78853893, 1)
+ambient_light_sky_contribution = 0.96
+ambient_light_energy = 6.94
+reflected_light_source = 2
+tonemap_mode = 4
+tonemap_exposure = 1.41
+tonemap_white = 3.0
+tonemap_agx_white = 2.0
+tonemap_agx_contrast = 1.0
+adjustment_enabled = true
+adjustment_contrast = 1.03
+adjustment_saturation = 1.16
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ls4kh"]
+size = Vector3(4.46138, 5.31226, 3.65952)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nw4gi"]
+size = Vector3(131, 4.10388, 172)
+
+[sub_resource type="Animation" id="Animation_f0w21"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 3.14159, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-4.7653, 0.992168, 1.43764)]
+}
+
+[sub_resource type="Animation" id="Animation_ln07t"]
+resource_name = "deplacement1"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4.6, 5.2, 9.5, 9.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 3.14159, 0), Vector3(0, 3.14159, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, -3.14159, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4.6, 5.2, 9.5, 9.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-5.55537, 0.992168, 1.43764), Vector3(-5.55537, 0.992168, -7.45059), Vector3(-5.55537, 0.992168, -7.45059), Vector3(-5.55537, 0.992168, 1.43764), Vector3(-5.55537, 0.992168, 1.43764)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oqw30"]
+_data = {
+&"RESET": SubResource("Animation_f0w21"),
+&"deplacement1": SubResource("Animation_ln07t")
+}
+
+[sub_resource type="Animation" id="Animation_y4xcu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-7.87596, 0.992168, -16.4513)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 3.14159, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mqrmh"]
+resource_name = "deplacement_03"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 4.2, 5.6, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-7.87596, 0.992168, -16.4513), Vector3(-5.75264, 0.992168, -23.0188), Vector3(-5.75264, 0.992168, -23.0188), Vector3(-7.87596, 0.992168, -16.4513)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 4.2, 5.6, 9.3, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 3.14159, 0), Vector3(0, 3.14159, 0), Vector3(0, -0.264821, 0), Vector3(0, -0.264821, 0), Vector3(0, 3.14159, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8e6x5"]
+_data = {
+&"RESET": SubResource("Animation_y4xcu"),
+&"deplacement_03": SubResource("Animation_mqrmh")
+}
+
+[sub_resource type="Animation" id="Animation_2a5lx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-18.0641, 0.992168, -49.2064)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ylfie"]
+resource_name = "deplacement_04"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4, 5.2, 8.9, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-18.0641, 0.992168, -49.2064), Vector3(-10.1115, 0.992168, -49.2064), Vector3(-10.1115, 0.992168, -49.2064), Vector3(-18.0641, 0.992168, -49.2064), Vector3(-18.0641, 0.992168, -49.2064)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4, 5.2, 8.9, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0), Vector3(0, 1.5708, 0), Vector3(0, -1.5708, 0), Vector3(0, -1.5708, 0), Vector3(0, 1.5708, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2tpf4"]
+_data = {
+&"RESET": SubResource("Animation_2a5lx"),
+&"deplacement_04": SubResource("Animation_ylfie")
+}
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_c185c"]
+
+[sub_resource type="Curve3D" id="Curve3D_6in8e"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 2.48539, -15, 1.69048, 0, 0, 0, 0, 0, 0, 2.62943, -15, -9.40026, 0, 0, 0, 0, 0, 0, -3.70814, -15, -9.68833, 0, 0, 0, 0, 0, 0, -4.57235, -15, -48.2899, 0, 0, 0, 0, 0, 0, -14.9429, -15, -48.2899, 0, 0, 0, 0, 0, 0, -15.6631, -15, -34.8946, 0, 0, 0, 0, 0, 0, -8.60535, -15, -35.1826, 0, 0, 0, 0, 0, 0, -7.88517, -15, 1.83452, 0, 0, 0, 0, 0, 0, 2.48539, -15, 1.69048, 0, 0, 0, 0, 0, 0, 2.48535, 19.901, -0.29214),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 10
+
+[node name="Jeu_Niveau1" type="Node3D" unique_id=1466340302]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 0)
+script = ExtResource("1_kd0g7")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1949566285]
+environment = SubResource("Environment_gf4om")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=367155556]
+transform = Transform3D(0.021335727, -0.8295359, 0.5580456, 0, 0.5581727, 0.8297248, -0.99977237, -0.01770278, 0.01190902, 10.305499, 14.272701, 2.94725)
+environment = SubResource("Environment_gf4om")
+current = true
+fov = 49.5
+far = 1263.21
+script = ExtResource("2_75a24")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=167500817]
+transform = Transform3D(-0.797237, 0.57471, 0.184721, 0.23005, 0.00633733, 0.973158, 0.558113, 0.818333, -0.137265, -3.64574, 16.2768, -12.762)
+light_energy = 1.151
+shadow_enabled = true
+
+[node name="poupee_01" parent="." unique_id=1492223634 instance=ExtResource("2_xcs67")]
+transform = Transform3D(-0.999969, 0, 0.00785369, 0, 1, 0, -0.00785369, 0, -0.999969, 3.37903, 1.0211, 7.22728)
+script = ExtResource("4_0i7c8")
+
+[node name="Fin" type="Area3D" parent="." unique_id=364787235]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.609, 0.363986, -53.9031)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fin" unique_id=559758283]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0227127, 1.4469, -0.15657)
+shape = SubResource("BoxShape3D_ls4kh")
+
+[node name="Debut" type="Area3D" parent="." unique_id=1756387595]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.51761, 0.363986, 7.38595)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Debut" unique_id=1628190453]
+transform = Transform3D(0.510822, 0.760831, -0.400246, -0.408695, 0.624516, 0.665543, 0.756326, -0.176395, 0.629964, -0.0227127, 1.4469, -0.15657)
+shape = SubResource("BoxShape3D_ls4kh")
+
+[node name="Vide" type="Area3D" parent="." unique_id=743609264]
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Vide" unique_id=686974025]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.55844, -7.86285, -25.8661)
+shape = SubResource("BoxShape3D_nw4gi")
+
+[node name="poupee_02" parent="." unique_id=1585244491 instance=ExtResource("4_ko6yn")]
+transform = Transform3D(-6, 0, 1.521109e-05, 0, 6, 0, -1.521109e-05, 0, -6, -4.7653, 0.992168, 1.43764)
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="poupee_02" unique_id=1076909019]
+libraries/ = SubResource("AnimationLibrary_oqw30")
+autoplay = &"deplacement1"
+
+[node name="poupee_03" parent="." unique_id=200633783 instance=ExtResource("4_ko6yn")]
+transform = Transform3D(-4, 0, 1.0140727e-05, 0, 4, 0, -1.0140727e-05, 0, -4, -7.87596, 0.992168, -16.4513)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="poupee_03" unique_id=254255588]
+libraries/ = SubResource("AnimationLibrary_8e6x5")
+autoplay = &"deplacement_03"
+
+[node name="poupee_04" parent="." unique_id=178424848 instance=ExtResource("4_ko6yn")]
+transform = Transform3D(-1.4479961e-05, 0, 4, 0, 4, 0, -4, 0, -1.4479961e-05, -18.0641, 0.992168, -49.2064)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="poupee_04" unique_id=1701295343]
+libraries/ = SubResource("AnimationLibrary_2tpf4")
+autoplay = &"deplacement_04"
+
+[node name="fleur_01" parent="." unique_id=410457146 instance=ExtResource("5_ies2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.497, 20, 1.028)
+
+[node name="fleur_02" parent="." unique_id=121589947 instance=ExtResource("5_ies2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.16, 30, 1.449)
+
+[node name="fleur_03" parent="." unique_id=655510342 instance=ExtResource("5_ies2d")]
+transform = Transform3D(0.999925, -0.0122694, 0, 0.0122694, 0.999925, 0, 0, 0, 1, -8.55123, 32, 0.734)
+
+[node name="fleur_04" parent="." unique_id=374432389 instance=ExtResource("5_ies2d")]
+transform = Transform3D(0.999925, -0.0122694, 0, 0.0122694, 0.999925, 0, 0, 0, 1, -9.531, 60, -10.7987)
+
+[node name="fleur_05" parent="." unique_id=777847889 instance=ExtResource("5_ies2d")]
+transform = Transform3D(0.999925, -0.0122694, 0, 0.0122694, 0.999925, 0, 0, 0, 1, -7.93538, 60, -32.6295)
+
+[node name="fleur_06" parent="." unique_id=2016693074 instance=ExtResource("5_ies2d")]
+transform = Transform3D(0.999925, -0.0122694, 0, 0.0122694, 0.999925, 0, 0, 0, 1, -16.4036, 30, -48.3642)
+
+[node name="GUI" parent="." unique_id=2007248577 instance=ExtResource("6_df2ra")]
+
+[node name="ami_poupee_01" parent="." unique_id=1196785313 instance=ExtResource("7_enlrm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.898, 1, 0.893)
+
+[node name="ami_poupee_02" parent="." unique_id=1285728874 instance=ExtResource("7_enlrm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.00085, 1, -6.9604)
+
+[node name="ami_poupee_03" parent="." unique_id=1376131695 instance=ExtResource("7_enlrm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.573, 1, -39.0752)
+
+[node name="fleur_seule_01" parent="." unique_id=967678470 instance=ExtResource("3_sn1om")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2.73013, 48.2892, 0.0501633)
+
+[node name="Cylindres" type="Node3D" parent="." unique_id=186382334]
+transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 2.7, 0, -11, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cylindres" unique_id=858374568]
+transform = Transform3D(1.01639, 0, 0, 0, 1.01639, 0, 0, 0, 1.01639, -19, 45, -18.037)
+mesh = SubResource("CylinderMesh_c185c")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Cylindres" unique_id=1876634027]
+transform = Transform3D(1.01639, 0, 0, 0, 1.01639, 0, 0, 0, 1.01639, -10.25, 45, 0.62963)
+mesh = SubResource("CylinderMesh_c185c")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Cylindres" unique_id=1753289929]
+transform = Transform3D(1.01639, 0, 0, 0, 1.01639, 0, 0, 0, 1.01639, -6, 45, -18.037)
+mesh = SubResource("CylinderMesh_c185c")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Cylindres" unique_id=1720525196]
+transform = Transform3D(1.01639, 0, 0, 0, 1.01639, 0, 0, 0, 1.01639, 3, 45, 0.518519)
+mesh = SubResource("CylinderMesh_c185c")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Cylindres" unique_id=1305032664]
+transform = Transform3D(1.01639, 0, 0, 0, 1.01639, 0, 0, 0, 1.01639, 3, 45, -3.55556)
+mesh = SubResource("CylinderMesh_c185c")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Cylindres" unique_id=902053480]
+transform = Transform3D(1.01639, 0, 0, 0, 1.01639, 0, 0, 0, 1.01639, -4.5, 45, -3.55555)
+mesh = SubResource("CylinderMesh_c185c")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Cylindres" unique_id=1985658094]
+transform = Transform3D(1.01639, 0, 0, 0, 1.01639, 0, 0, 0, 1.01639, -19.5, 45, -13.1852)
+mesh = SubResource("CylinderMesh_c185c")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Cylindres" unique_id=1998854690]
+transform = Transform3D(1.01639, 0, 0, 0, 1.01639, 0, 0, 0, 1.01639, -10.75, 45, -13.1852)
+mesh = SubResource("CylinderMesh_c185c")
+
+[node name="AttakTimer" type="Timer" parent="." unique_id=848301470]
+wait_time = 0.5
+autostart = true
+
+[node name="SpawnPath" type="Path3D" parent="." unique_id=659021858]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
+curve = SubResource("Curve3D_6in8e")
+
+[node name="SpawnLocation" type="PathFollow3D" parent="SpawnPath" unique_id=705962624]
+transform = Transform3D(0.99991363, 0, -0.012986299, 0, 1, 0, 0.012986299, 0, 0.99991363, 2.48539, -15, 1.69048)
+
+[node name="buissons" parent="." unique_id=1922377444 instance=ExtResource("10_g3j8d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.00928688)
+
+[node name="fleur_pointue" parent="." unique_id=1254780796 instance=ExtResource("11_l0ypl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.3295, 1.01768, -53.5049)
+
+[node name="doudoulolita" parent="." unique_id=1932962007 instance=ExtResource("12_bhsya")]
+transform = Transform3D(0.576418, 0, -0.817155, 0, 1, 0, 0.817155, 0, 0.576418, -5.07326, 1.10142, -24.2581)
+
+[connection signal="body_entered" from="fleur_01" to="fleur_01" method="_on_body_entered"]
+[connection signal="timeout" from="AttakTimer" to="." method="_on_attak_timer_timeout"]

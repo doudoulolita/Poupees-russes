@@ -1,0 +1,41 @@
+extends Area3D
+
+@export var fall_speed: float = 5.0
+var _is_attached: bool = false
+
+func _ready() -> void:
+	# Test immédiat pour valider que la console fonctionne
+	print("Le script de l'objet est bien actif et prêt !")
+	
+	# Connecte le signal d'entrée de zone
+	body_entered.connect(_on_body_entered)
+
+func _physics_process(delta: float) -> void:
+	if _is_attached:
+		return
+
+	# Fait descendre l'objet tout seul s'il n'est pas attaché
+	position.y -= fall_speed * delta
+
+func _on_body_entered(body: Node) -> void:
+	if _is_attached:
+		return
+
+	print("Collision détectée avec : ", body.name)
+
+	var head_marker = body.get_node_or_null("ChapeauFleur")
+	if head_marker != null:
+		print("Tête du personnage trouvée, accrochage en cours...")
+		_is_attached = true
+
+		# Change de parent de manière sécurisée en gardant la position mondiale
+		reparent(head_marker)
+
+		# Remet les coordonnées à zéro par rapport à la tête
+		position = Vector3.ZERO
+		rotation = Vector3.ZERO
+
+		# Coupe la détection pour ne plus déclencher d'événements
+		set_deferred("monitoring", false)
+	else:
+		print("L'objet a touché un corps mais sans 'HeadMarker'.")
