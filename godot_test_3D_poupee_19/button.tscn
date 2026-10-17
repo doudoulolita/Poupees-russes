@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3 uid="uid://cdy4sagcci2e2"]
+
+[ext_resource type="Texture2D" uid="uid://bf1fua6pae4i8" path="res://Images/fleur_GUI.png" id="1_gfwpp"]
+[ext_resource type="Script" path="res://Scripts/MyButton.cs" id="1_v8okx"]
+[ext_resource type="PackedScene" uid="uid://51lewssmpmyu" path="res://Scenes/GuiScene.tscn" id="2_umkb6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sgsr5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tjf1g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yo0hh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3jkkx"]
+
+[node name="Button" type="Button"]
+offset_left = 11.0
+offset_top = 9.0
+offset_right = 81.0
+offset_bottom = 74.0
+scale = Vector2(1.34519, 1.06891)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sgsr5")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_tjf1g")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_yo0hh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3jkkx")
+text = "Menu"
+icon = ExtResource("1_gfwpp")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+script = ExtResource("1_v8okx")
+GUI = ExtResource("2_umkb6")

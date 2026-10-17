@@ -1,0 +1,139 @@
+[gd_scene load_steps=12 format=3 uid="uid://51lewssmpmyu"]
+
+[ext_resource type="Script" path="res://Scenes/guiScript.cs" id="1_y76lb"]
+[ext_resource type="Texture2D" uid="uid://bp2uiajh33nh3" path="res://Images/poupee_peinte_C_01.png" id="2_7bek6"]
+[ext_resource type="Texture2D" uid="uid://bnvsecsmbocn5" path="res://Images/poupee_peinte_C_02.png" id="3_swv2n"]
+[ext_resource type="Texture2D" uid="uid://cjinxq7dgy10d" path="res://Images/fleur.png" id="4_1a1tc"]
+[ext_resource type="Texture2D" uid="uid://t8fn5yxvcyol" path="res://Images/fleur_attaquante.png" id="5_uxai0"]
+[ext_resource type="Texture2D" uid="uid://bgsesmubxcjwv" path="res://Images/doudoulolita_7c_dialogue.png" id="6_r5j21"]
+
+[sub_resource type="SystemFont" id="SystemFont_71m01"]
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_54w1m"]
+font = SubResource("SystemFont_71m01")
+font_size = 20
+
+[sub_resource type="SystemFont" id="SystemFont_05rew"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4s81d"]
+line_spacing = 1.0
+font = SubResource("SystemFont_05rew")
+font_size = 13
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2d7ie"]
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+anti_aliasing_size = 0.05
+
+[node name="GUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_y76lb")
+
+[node name="Compteur" type="Label" parent="."]
+layout_mode = 0
+offset_left = 72.2
+offset_top = 163.8
+offset_right = 130.2
+offset_bottom = 232.8
+text = "10
+"
+label_settings = SubResource("LabelSettings_54w1m")
+
+[node name="Compteur2" type="Label" parent="."]
+layout_mode = 1
+offset_left = 73.2
+offset_top = 226.8
+offset_right = 131.2
+offset_bottom = 295.8
+text = "10
+"
+label_settings = SubResource("LabelSettings_54w1m")
+
+[node name="Compteur3" type="Label" parent="."]
+layout_mode = 1
+offset_left = 75.2
+offset_top = 283.8
+offset_right = 133.2
+offset_bottom = 352.8
+text = "10
+"
+label_settings = SubResource("LabelSettings_54w1m")
+
+[node name="Compteur4" type="Label" parent="."]
+layout_mode = 1
+offset_left = 73.2
+offset_top = 327.8
+offset_right = 131.2
+offset_bottom = 396.8
+text = "10
+"
+label_settings = SubResource("LabelSettings_54w1m")
+
+[node name="Compteur5" type="Label" parent="."]
+layout_mode = 1
+offset_left = 73.2
+offset_top = 385.8
+offset_right = 131.2
+offset_bottom = 454.8
+text = "10
+"
+label_settings = SubResource("LabelSettings_54w1m")
+
+[node name="Compteur6" type="Label" parent="."]
+layout_mode = 0
+offset_left = 156.2
+offset_top = 438.8
+offset_right = 214.2
+offset_bottom = 507.8
+text = "Hello
+"
+label_settings = SubResource("LabelSettings_4s81d")
+horizontal_alignment = 1
+
+[node name="PoupeePeinteC01" type="Sprite2D" parent="."]
+position = Vector2(36.2, 180.8)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("2_7bek6")
+
+[node name="PoupeePeinteC03" type="Sprite2D" parent="."]
+position = Vector2(37.2, 343.8)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_7bek6")
+
+[node name="PoupeePeinteC02" type="Sprite2D" parent="."]
+position = Vector2(37.2, 244.8)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("3_swv2n")
+
+[node name="Fleur" type="Sprite2D" parent="."]
+position = Vector2(45.2, 286.8)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("4_1a1tc")
+
+[node name="FleurAttaquante" type="Sprite2D" parent="."]
+position = Vector2(40.2001, 399.8)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("5_uxai0")
+
+[node name="Doudoulolita7cDialogue" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(128.2, 546.8)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_r5j21")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+z_index = -3
+layout_mode = 0
+offset_left = 8.2
+offset_top = 145.8
+offset_right = 48.2
+offset_bottom = 185.8
+scale = Vector2(11.6878, 13.0548)
+theme_override_styles/panel = SubResource("StyleBoxFlat_2d7ie")
