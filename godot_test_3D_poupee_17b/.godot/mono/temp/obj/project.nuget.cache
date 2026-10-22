@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "KNveh2PyMW0=",
+  "success": true,
+  "projectFilePath": "/home/laurence/Vidéos/tests_godot/godot_tests_3D/tests_3D_poupees/godot_test_3D_poupee_17b/Godot Test 3d Poupee 01.csproj",
+  "expectedPackageFiles": [
+    "/home/laurence/.nuget/packages/godot.sourcegenerators/4.7.0/godot.sourcegenerators.4.7.0.nupkg.sha512",
+    "/home/laurence/.nuget/packages/godotsharp/4.7.0/godotsharp.4.7.0.nupkg.sha512",
+    "/home/laurence/.nuget/packages/godotsharpeditor/4.7.0/godotsharpeditor.4.7.0.nupkg.sha512",
+    "/home/laurence/.nuget/packages/microsoft.netcore.app.ref/8.0.30/microsoft.netcore.app.ref.8.0.30.nupkg.sha512",
+    "/home/laurence/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.30/microsoft.aspnetcore.app.ref.8.0.30.nupkg.sha512"
+  ],
+  "logs": []
+}
