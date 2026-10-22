@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://4hq03a7jsc0m"]
-
-[ext_resource type="PackedScene" uid="uid://5butblgwvx1p" path="res://Modeles/buisson_convcolonly.glb" id="1_avru0"]
-
-[node name="buisson_convcolonly" instance=ExtResource("1_avru0")]
